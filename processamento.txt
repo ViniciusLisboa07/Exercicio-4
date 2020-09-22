@@ -1,0 +1,51 @@
+ #!/bin/bash
+ 
+INDEX=0
+J=0
+if [ $1 -eq 2 ]
+then
+        while :
+        do
+                echo
+                echo
+                if [ $4 -eq 21 ]
+                then
+                        echo "Jogo acabou, você venceu!"
+                        break
+                elif [ $4 -lt 21 ]
+                then
+                        echo "Você deseja retirar mais uma carta? [S/N]"
+                        read  RESPOSTA
+                        if [ "$RESPOSTA" == "S" ]
+                        then
+                                while :
+                                do
+                                        echo "Nova carta processo..."
+                                        NOVACARTA=($(shuf -i 1-13 -n 1))
+                                        NOVASOMA=$(($NOVACARTA[INDEX]+$4))
+                                        if [ $NOVASOMA -eq 21 ]
+					then
+                                                echo "Você venceu"
+                                                break
+                                        elif [ $NOVASOMA -gt 21 ]
+                                        then
+                                                echo "Você perdeu, a soma das cartas excedeu o valor 21!"
+                                                break
+                                        for J in ${#NOVACARTA[@]}
+                                        do
+                                                echo "$NOVACARTA[J]"
+                                                J=$(($J+1))
+                                        done
+					INDEX=$(($INDEX+1))
+                                done 
+                        else
+                                echo "Você perdeu"
+                        fi
+                else
+                        echo "ESTOROU"
+                        break
+                fi
+ 
+                echo "Próximo jogador: CPU"
+        done
+fi

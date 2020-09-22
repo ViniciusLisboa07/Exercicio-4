@@ -1,0 +1,14 @@
+#!/bin/bash
+ 
+JOGADORES=$1
+ 
+echo "Gerando cartas..."
+echo 
+CARTAS=($(shuf -i 1-13 -n 2))
+CARTA1=${CARTAS[0]}
+CARTA2=${CARTAS[1]}
+SOMA=$(($CARTA1+$CARTA2))
+ 
+echo "Você recebeu a carta $CARTA1 e a carta $CARTA2. A soma das cartas é $SOMA"
+ 
+./processamento.sh $JOGADORES $CARTA1 $CARTA2 $SOMA
