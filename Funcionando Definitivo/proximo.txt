@@ -1,0 +1,13 @@
+#!/bin/bash
+ 
+JOGADORES=$1
+ 
+echo "PROXIMO JOGADOR"
+echo
+ 
+JOGADOR=$2
+JOGADOR=$(($JOGADOR+1))
+JOGADORES=$(($JOGADORES-1))
+ 
+./gerar.sh $JOGADORES 0 $JOGADOR
+ 
