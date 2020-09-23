@@ -1,0 +1,25 @@
+#!/bin/bash
+ 
+echo "Quantos jogadore nessa partida?"
+read JOGADORES
+ 
+if [ $JOGADORES -le 1 ]
+then
+        echo "Valor inválido, são necessários no mínimo 2 jogadores"
+elif [ $JOGADORES -eq 2 ]
+then
+        echo "Dois jogadores selecionados"
+elif [ $JOGADORES -eq 3 ]
+then
+        echo "Três jogadores seleciondos"
+elif [ $JOGADORES -eq 4 ]
+then
+        echo "Quatro jogadores selecionados"
+elif [ $JOGADORES -eq 5 ]
+then
+        echo "Cinco jogadores selecionados"
+else
+        echo "Valor inváildo, no máximo cinco jogadores podem jogar"
+fi
+ 
+./gerar.sh $JOGADORES 0
