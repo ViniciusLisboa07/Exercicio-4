@@ -1,11 +1,12 @@
+#!/bin/bash
 
-#!/bin/bash 
+MAIOR=0
 
 i=1
 
 for i in $@
 do
-        if [ ${i} -gt $MAIOR ]
+        if [ ${i} -gt $MAIOR ] && [ ${i} -le 21 ]
         then
                 MAIOR=${i}
         fi
@@ -22,5 +23,6 @@ EMPATE=$(($EMPATE/2))
 
 echo "==-==-==JOGO CONCLUIDO==-==-=="
 echo
-echo "O maior é $MAIOR"
+echo "O mais próximo de 21 é $MAIOR"
 echo "Empates: $EMPATE"
+
